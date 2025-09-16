@@ -1,0 +1,15 @@
+# Ignorar configs de IDE
+.idea/
+.vscode/
+
+# Ignorar arquivos do sistema
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignorar chaves locais
+serviceAccountKey.json
+
+# Ignorar dependências locais
+venv/
+.env
