@@ -1,0 +1,208 @@
+Execução técnica do Contrax até o lançamento.
+
+Plano rápido de cibersegurança (1 dia).
+
+Plano de independência de notebook (backup total em nuvem).
+
+Plano mínimo de propaganda e marketing (MVP com IA).
+
+📌 1. Execução Técnica do Contrax (Checklist até o lançamento)
+🔹 Backend (Render + Firebase)
+
+ Deploy do backend no Render (feito ✅).
+
+ Configurar variáveis de ambiente no Render (STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, MERCADOPAGO_ACCESS_TOKEN, FIREBASE_CREDENTIALS_JSON).
+
+ Criar coleção contratos no Firestore com estrutura:
+
+{
+  "id": "uuid",
+  "userId": "id_usuario",
+  "titulo": "Contrato X",
+  "conteudo": "texto do contrato",
+  "status": "rascunho | assinado | finalizado",
+  "plano": "free | basic | standard",
+  "dataCriacao": "timestamp"
+}
+
+
+ Adicionar validação de limites no backend:
+
+Free → até 1 contrato/mês.
+
+Basic → até 10 contratos/mês.
+
+Standard → ilimitado.
+
+🔹 Flutter (App)
+
+Contratos
+
+ Criar tela de lista de contratos → carrega contratos do Firestore.
+
+ Tela de detalhe/edição → insere ou edita contrato.
+
+ Botão exportar PDF (usar pacote pdf do Flutter).
+
+ Se for Free → aplicar marca d’água automaticamente no PDF.
+
+Planos
+
+ Tela de planos com 3 opções (Free, Basic, Standard).
+
+ Integração com API /create-checkout-session (Stripe) e /checkout-mercadopago.
+
+ Atualizar plano do usuário no Firestore após pagamento.
+
+Perfil
+
+ Puxar nome/email do FirebaseAuth.
+
+ Mostrar plano atual.
+
+ Editar dados básicos (nome, empresa, email).
+
+ Upload de foto → salvar no Firebase Storage.
+
+Dashboard
+
+ Puxar dados reais do Firestore (nº contratos criados, assinados, pagos).
+
+ Calcular Ticket Médio e Total Movimentado.
+
+ Mostrar últimas atividades (log no Firestore).
+
+Admin
+
+ Adicionar flag isAdmin: true no Firestore.
+
+ Criar painel Admin (pode ser no mesmo app, mas com filtros).
+
+ Admin vê todos os contratos de todos os clientes.
+
+🔹 UX & Responsividade
+
+ Ajustar cores/tipografia (tema fixo consistente).
+
+ Deixar Bottom Navigation fixo e fluido.
+
+ Testar em celular, tablet e web.
+
+🔐 2. Plano de Cibersegurança (1 dia de implementação)
+
+👉 Meta: blindar o básico em 24h para não expor você nem os clientes.
+
+Backend Render
+
+ Ativar HTTPS obrigatório (Render já faz isso).
+
+ Nunca expor chaves no código → usar só Environment Variables.
+
+ Ativar logs de erros → mas sem salvar dados sensíveis.
+
+Firebase
+
+ Regras Firestore:
+
+match /contratos/{docId} {
+  allow read, write: if request.auth.uid == resource.data.userId;
+}
+
+
+👉 Assim, cada usuário só acessa os próprios contratos.
+
+Autenticação
+
+ Usar FirebaseAuth em todas as rotas do app.
+
+ Validar token JWT no backend.
+
+Senhas & Contas
+
+ Usar 2FA (Render, GitHub e Firebase).
+
+ Usar gerenciador de senhas (Bitwarden ou 1Password).
+
+☁️ 3. Plano de Independência de Notebook (Backup em Nuvem)
+
+👉 Meta: se o notebook queimar, em 1h você consegue trabalhar em outro.
+
+Código
+
+ Manter GitHub como repositório central.
+
+ Usar sempre git push ao terminar algo.
+
+Banco de Dados
+
+ Tudo já está no Firebase (Firestore + Storage).
+
+Documentos
+
+ Criar conta no Google Drive Business ou OneDrive.
+
+ Sincronizar pastas de documentos, contratos, imagens e vídeos.
+
+Automação
+
+ Instalar Google Drive/OneDrive no PC.
+
+ Ativar sincronização automática de pastas-chave (projeto + docs).
+
+👉 Assim, se trocar de máquina, basta clonar o GitHub + logar no Drive e tudo volta.
+
+📢 4. Plano de Marketing & Propaganda (MVP com IA)
+
+👉 Meta: em 1 semana já aparecer no TikTok, Instagram e Facebook.
+
+🎥 Vídeo IA (para todos os canais)
+
+Criar roteiro rápido:
+
+Problema: “Você ainda perde tempo assinando contratos no papel?”
+
+Solução: “Com o Contrax, você cria e assina contratos em segundos, 100% digital e seguro.”
+
+Call to Action: “Baixe já e assine seus primeiros contratos grátis.”
+
+Usar IA de vídeo (Pictory, Runway ou HeyGen) → gerar vídeo curto (15s).
+
+Exportar em 3 formatos: TikTok/Reels (vertical), Instagram post (quadrado), YouTube Shorts (vertical).
+
+📲 Estratégia mínima de redes
+
+TikTok/Instagram Reels → 3 vídeos curtos por semana (problema → solução → CTA).
+
+Instagram feed → 1 post por semana com infográfico (“Comparativo: Papel vs. Contrax”).
+
+Facebook → replicar os vídeos + link direto pro app.
+
+YouTube Shorts → republicar os vídeos verticais.
+
+🚀 MVP de Growth
+
+Criar página de captura (Landing Page) → pode usar Carrd ou Notion.
+
+Adicionar link de cadastro → direciona pro app Contrax.
+
+Investir R$ 10–20/dia em anúncios pagos no TikTok/Instagram → público-alvo:
+
+Pequenas empresas, advogados, prestadores de serviço.
+
+Local (Brasil) + interesse em contratos, advocacia, empreendedorismo.
+
+📊 Resumindo o Caminho
+
+Finalizar backend (limites e PDF com marca d’água).
+
+Integrar app Flutter ao backend e Firestore.
+
+Liberar planos Free, Basic e Standard funcionando.
+
+Fechar MVP com UX básica, mas funcional.
+
+Proteger com cibersegurança mínima (1 dia).
+
+Colocar tudo em nuvem (independência de notebook).
+
+Rodar MVP de marketing com vídeos IA e anúncios básicos.
