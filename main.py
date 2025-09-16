@@ -9,6 +9,13 @@ import mercadopago
 app = FastAPI()
 
 # ==================================================
+# 🌐 Rota raiz (teste do backend)
+# ==================================================
+@app.get("/")
+def root():
+    return {"message": "API Contrax está rodando 🚀"}
+
+# ==================================================
 # 🔑 Configurações Stripe (pega do Render)
 # ==================================================
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
