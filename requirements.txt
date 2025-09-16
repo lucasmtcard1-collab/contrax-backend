@@ -5,3 +5,4 @@ firebase-admin==6.5.0
 mercadopago==2.2.0
 gunicorn==21.2.0
 python-dotenv==1.0.1
+fpdf==1.7.2
