@@ -13,7 +13,7 @@ app = FastAPI()
 # ==================================================
 @app.get("/")
 def root():
-    return {"message": "API Contrax está rodando 🚀"}
+    return {"message": "API Contrax está rodando, graças a Deus 🚀"}
 
 # ==================================================
 # 🔑 Configurações Stripe (pega do Render)
