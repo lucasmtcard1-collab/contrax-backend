@@ -13,3 +13,5 @@ serviceAccountKey.json
 # Ignorar dependências locais
 venv/
 .env
+contrax-*-firebase-adminsdk-*.json
+*.env
