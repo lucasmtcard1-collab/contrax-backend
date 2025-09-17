@@ -25,13 +25,9 @@ def root():
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET")
 
-<<<<<<< HEAD
-PRICE_BASIC = "price_1S3KUV3hWlIsRkVIVoplem92"
-PRICE_STANDARD = "price_1S3KV83hWlIsRkVINxTJ4Cgp"
-=======
+PRICE_FREE = "price_1S899B3fiLXnL4tfkL8hSpyF"
 PRICE_BASIC = "price_1S899m3fiLXnL4tfA8Nk36ql"
 PRICE_STANDARD = "price_1S89AO3fiLXnL4tfkdCNCkXG"
->>>>>>> HEAD@{1}
 
 # ==================================================
 # 🔑 Configurações Firebase (pega do Render)
